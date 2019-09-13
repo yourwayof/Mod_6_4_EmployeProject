@@ -14,8 +14,5 @@ public class Main {
 
         company.getTopSalaryStaff(10);
         company.getLowestSalaryStaff(11);
-
-
-
     }
 }

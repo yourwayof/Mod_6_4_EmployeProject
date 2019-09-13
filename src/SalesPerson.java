@@ -1,4 +1,4 @@
-public class SalesPerson extends Company {
+public class SalesPerson extends Company implements Employee {
     int fixedSalary = 0;
     int bonusPercent = 5;
     int salary = 0;

@@ -1,4 +1,4 @@
-public class Operationist extends Company {
+public class Operationist extends Company implements Employee  {
     int fixedSalary = 0;
     int salary = 0;
     int profit = 0;
