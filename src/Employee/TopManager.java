@@ -1,7 +1,12 @@
-public class TopManager extends Company implements Employee  {
+package Employee;
+
+import Company.Company;
+
+public class TopManager implements Employee {
 
     int fixedSalary = 0;
     int salary = 0;
+    int totalSalary = 0;
     int profit = 0;
 
     public TopManager(int amount){
@@ -18,16 +23,16 @@ public class TopManager extends Company implements Employee  {
         return this.fixedSalary;
     }
 
-    @Override
-    public int getMonthSalary() {
+    public int getMonthSalary(Company company) {
 
-        if (super.getOverallProfit() > 10000000){
+        if (company.getOverallProfit() > 10000000){
             this.salary = this.fixedSalary + 30000;
         } else {
         this.salary = this.fixedSalary;
         }
         return salary;
     }
+
 
     public int getProfit()
     {

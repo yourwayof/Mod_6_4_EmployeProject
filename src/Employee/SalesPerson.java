@@ -1,4 +1,8 @@
-public class SalesPerson extends Company implements Employee {
+package Employee;
+
+import Company.Company;
+
+public class SalesPerson implements Employee {
     int fixedSalary = 0;
     int bonusPercent = 5;
     int salary = 0;
@@ -29,7 +33,7 @@ public class SalesPerson extends Company implements Employee {
      }
 
     @Override
-    public int getMonthSalary() {
+    public int getMonthSalary(Company company) {
         this.salary = fixedSalary + 5 * this.profit / 100;
         return this.salary;
     }

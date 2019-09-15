@@ -1,4 +1,8 @@
-public class Operationist extends Company implements Employee  {
+package Employee;
+
+import Company.Company;
+
+public class Operationist implements Employee {
     int fixedSalary = 0;
     int salary = 0;
     int profit = 0;
@@ -19,7 +23,7 @@ public class Operationist extends Company implements Employee  {
         return this.profit;
     }
 
-    public int getMonthSalary() {
+    public int getMonthSalary(Company company) {
         this.salary = fixedSalary;
         return this.salary;
     }
