@@ -8,6 +8,9 @@ public class TopManager implements Employee {
     int salary = 0;
     int totalSalary = 0;
     int profit = 0;
+    final int ENOUGH_PROFIT_FOR_BONUS = 10000000;
+    int bonus = 0;
+    final int BONUS = 30000;
 
     public TopManager(int amount){
         this.fixedSalary = amount;
@@ -24,13 +27,8 @@ public class TopManager implements Employee {
     }
 
     public int getMonthSalary(Company company) {
-
-        if (company.getOverallProfit() > 10000000){
-            this.salary = this.fixedSalary + 30000;
-        } else {
-        this.salary = this.fixedSalary;
-        }
-        return salary;
+        bonus = company.getOverallProfit() > ENOUGH_PROFIT_FOR_BONUS ? BONUS : 0;
+        return this.fixedSalary + bonus;
     }
 
 
