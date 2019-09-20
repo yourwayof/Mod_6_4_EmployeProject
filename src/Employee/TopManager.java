@@ -4,13 +4,11 @@ import Company.Company;
 
 public class TopManager implements Employee {
 
-    int fixedSalary = 0;
-    int salary = 0;
-    int totalSalary = 0;
-    int profit = 0;
-    final int ENOUGH_PROFIT_FOR_BONUS = 10000000;
-    int bonus = 0;
-    final int BONUS = 30000;
+    private int fixedSalary = 0;
+    private int salary = 0;
+    private int totalSalary = 0;
+    private int profit = 0;
+    private int bonus = 0;
 
     public TopManager(int amount){
         this.fixedSalary = amount;
@@ -27,7 +25,7 @@ public class TopManager implements Employee {
     }
 
     public int getMonthSalary(Company company) {
-        bonus = company.getOverallProfit() > ENOUGH_PROFIT_FOR_BONUS ? BONUS : 0;
+        bonus = company.getOverallProfit() > company.ENOUGH_PROFIT_FOR_BONUS ? company.BONUS : 0;
         return this.fixedSalary + bonus;
     }
 

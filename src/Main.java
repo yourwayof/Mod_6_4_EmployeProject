@@ -21,7 +21,7 @@ public class Main {
         System.out.println("Создайте классы, в которых будет информация о зарплатах сотрудников, и интерфейс “Сотрудник” с методом getMonthSalary(). \nТипы сотрудников - менеджер по продажам (зарплата складывается из фиксированной части и 5% от заработанных им для компании денег), \nтоп-менеджер (фиксированная часть + премия, если доход компании составил более 10 миллионов рублей) и операционист (фиксированная зарплата). \nСоздайте также класс, представляющий компанию, в которой работают эти сотрудники. \nИх можно нанимать, увольнять. Также в этом классе должны быть реализованы два метода, \ngetTopSalaryStaff(int count) и getLowestSalaryStaff(int count), - которые будут выводить заданное (в параметре count) количество сотрудников с самыми высокими и самыми низкими зарплатами. \nСгенерируйте и наймите 270 сотрудников с разными зарплатами, а затем вызовите эти два метода и продемонстрируйте их работу.");
         System.out.println("---");
 
-        Company company = new Company();
+        Company company = new Company(30000, 10000000);
 
         ArrayList<Employee> randomEmployeeList = new ArrayList<Employee>();
 
@@ -47,17 +47,14 @@ public class Main {
                 topManagerCount++;
             }
         }
-
             company.hireEmployee(randomEmployeeList);
 
         System.out.println("Число продавцов: " + salesmanCount);
         System.out.println("Число операционистов: " + operationistCount);
         System.out.println("Число топ-менеджеров: " + topManagerCount);
-        company.printList(company);
+        //company.printListEmployee();
 
-        company.getTopSalaryStaff(10, company);
-        company.getLowestSalaryStaff(11, company);
-
-
+        company.getTopSalaryStaff(10);
+        company.getLowestSalaryStaff(11);
     }
 }

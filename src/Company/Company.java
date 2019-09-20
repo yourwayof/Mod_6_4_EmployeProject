@@ -8,11 +8,18 @@ import java.util.Comparator;
 
 public class Company {
 
-    final int ENOUGH_PROFIT_FOR_BONUS = 10000000;
-    final int BONUS = 30000;
-    Comparator<Employee> comparator = Comparator.comparing(employee -> employee.getMonthSalary(this));
+    public final int ENOUGH_PROFIT_FOR_BONUS;
+    public final int BONUS;
 
-    public ArrayList<Employee> employees = new ArrayList<Employee>();
+    private Comparator<Employee> comparator = Comparator.comparing(employee -> employee.getMonthSalary(this));
+
+    public Company (int bonusAmount, int profitForBonus)
+    {
+        this.ENOUGH_PROFIT_FOR_BONUS = profitForBonus;
+        this.BONUS = bonusAmount;
+    }
+
+    private ArrayList<Employee> employees = new ArrayList<Employee>();
 
     public int getOverallProfit() {
         int getOverallProfit = 0;
@@ -28,14 +35,14 @@ public class Company {
         return employees;
     }
 
-    public void printList(Company company) {
-        String message = getOverallProfit() > ENOUGH_PROFIT_FOR_BONUS ? "Да" : "Нет";
+    public void printListEmployee() {
+        String message = getOverallProfit() > this.ENOUGH_PROFIT_FOR_BONUS ? "Да" : "Нет";
 
         System.out.println("Общий доход компании: " + getOverallProfit());
-        System.out.println("Получают ли  топ-менеджеры ежемесячный бонус в " + BONUS + " рублей?: " + message);
+        System.out.println("Получают ли  топ-менеджеры ежемесячный бонус в " + this.BONUS + " рублей?: " + message);
         System.out.println();
         for (Employee employee : employees) {
-            System.out.println(employee + " - зарплата: " + employee.getMonthSalary(company));
+            System.out.println(employee + " - зарплата: " + employee.getMonthSalary(this));
         }
     }
 
@@ -44,26 +51,26 @@ public class Company {
         return employees;
     }
 
-    public ArrayList<Employee> getTopSalaryStaff (int count, Company company)
+    public ArrayList<Employee> getTopSalaryStaff (int count)
     {
         int index = count <= employees.size() ? count : employees.size();
         employees.sort(comparator.reversed());
         System.out.println(index + " лучших зарплат");
-        printList(index, company);
+        printList(index);
         return employees;}
 
-    public ArrayList<Employee> getLowestSalaryStaff(int count, Company company)
+    public ArrayList<Employee> getLowestSalaryStaff(int count)
     {
         int index = count <= employees.size() ? count : employees.size();
         employees.sort(comparator);
         System.out.println(index + " худших зарплат");
-        printList(index, company);
+        printList(index);
         return employees;
     }
 
-    public void printList (int index, Company company){
+    private void printList (int index){
         for (int i = 0; i < index; i++) {
-            System.out.println(employees.get(i) + " - " + employees.get(i).getMonthSalary(company));
+            System.out.println(employees.get(i) + " - " + employees.get(i).getMonthSalary(this));
         }
     }
 

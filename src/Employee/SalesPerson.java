@@ -3,10 +3,10 @@ package Employee;
 import Company.Company;
 
 public class SalesPerson implements Employee {
-    int fixedSalary = 0;
-    final int BONUS_PERCENT = 5;
-    int salary = 0;
-    int profit = 0;
+    private int fixedSalary = 0;
+    private final int BONUS_PERCENT = 5;
+    private int salary = 0;
+    private int profit = 0;
 
     public SalesPerson ()
     {
@@ -22,12 +22,12 @@ public class SalesPerson implements Employee {
         return this.fixedSalary;
     }
 
-     public void setProfit(int amount)
+    public void setProfit(int amount)
      {
             this.profit = amount;
      }
 
-     public int getProfit()
+    public int getProfit()
      {
             return this.profit;
      }
